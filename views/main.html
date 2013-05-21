@@ -1,0 +1,87 @@
+<div class="hero-unit">
+
+        <table class="table table-bordered">
+			  	<thead>
+			  		<th>Przestrzeń:</th>
+			  		<th>2</th>
+			  		<th>3</th>
+			  	</thead>
+			  		<tr>
+			  			<td>Przestrzeń Rn (bazy B i B'):</td>
+			  			<td><input type="radio" ng-model="ndim" value="2" ng-change="setDim(ndim, value)"></td>
+			  			<td><input type="radio" ng-model="ndim" value="3" ng-change="setDim(ndim, value)"></td>
+			  		</tr>
+			  		<tr>
+			  			<td>Przestrzeń Rm (bazy C i C'):</td>
+			  			<td><input type="radio" ng-model="mdim" value="2" ng-change="setMDim(value)"></td>
+			  			<td><input type="radio" ng-model="mdim" value="3" ng-change="setMDim(value)"></td>
+			  			</tr>
+ 			 </table>
+    		Baza B:
+    		<input name="nBase1" ng-model="b[0]" ng-list="" ng-model-instant="" required="">
+    		<input name="nBase1" ng-model="b[1]" ng-list="" ng-model-instant="" required="">
+    		<input name="nBase1" ng-model="b[2]" ng-list="" ng-model-instant="" ng-show="getNDim() == 3">
+				<br>
+    		Baza B':
+    		<input name="nBaseprim" ng-model="bprim[0]" ng-list="" ng-model-instant="" required="">
+    		<input name="nBaseprim" ng-model="bprim[1]" ng-list="" ng-model-instant="" required="">
+    		<input name="nBaseprim" ng-model="bprim[2]" ng-list="" ng-model-instant="" ng-show="getNDim() == 3">
+				
+				<hr>
+
+    		Baza C:
+    		<input name="mBase1" ng-model="c[0]" ng-list="" required="">
+    		<input name="mBase1" ng-model="c[1]" ng-list="" required="">
+    		<input name="mBase1" ng-model="c[2]" ng-list="" ng-show="getMDim() == 3">
+				
+				<br>
+
+    		Baza C':
+    		<input name="nBase1" ng-model="cprim[0]" ng-list="" required="">
+    		<input name="nBase1" ng-model="cprim[1]" ng-list="" required="">
+    		<input name="nBase1" ng-model="cprim[2]" ng-list="" ng-show="getMDim() == 3">
+       
+        <hr>
+        Macierz Mbc: <br>
+        <input name="nBase1" ng-model="mbc[0]" ng-list="" required=""><br>
+    		<input name="nBase1" ng-model="mbc[1]" ng-list="" required=""><br>
+    		<input name="nBase1" ng-model="mbc[2]" ng-list="" ng-show="getMDim() == 3">
+				
+				<br>
+				<br>
+				<br>
+
+				<button class="btn btn-large btn-info" ng-click="calculateMatrix()">Oblicz macierze</button>
+				<br>
+				<br>
+				<br>
+				<div class="row-fluid">
+				<table class="table table-striped">
+				<tr>
+					<td>Mb'b =</td>
+					<td><table class="matrix">
+        <tr ng-repeat="row in mbb">
+            <td ng-repeat="column in row">{{column}}</td>
+        </tr>
+    	</table></td>
+				</tr>
+    <tr>
+    	<td>Mcc'=</td>
+    	<td><table class="matrix">
+        <tr ng-repeat="row in mcc">
+            <td ng-repeat="column in row">{{column}}</td>
+        </tr>
+    </table></td>
+    </tr>
+			<tr>
+			<td>Mb'c'=</td>
+			<td>
+    <table class="matrix">
+        <tr ng-repeat="row in mbcprim">
+            <td ng-repeat="column in row">{{column}}</td>
+        </tr>
+    </table>
+    </td>
+    </tr>
+		</table>
+</div></div>
